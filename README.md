@@ -1,8 +1,8 @@
 # GerenciamentoDeTarefasDev
 Intalação
-Clone o repositório -> 
+Clone o repositório -> git clone git@github.com:Thiagolourenco/GerenciamentoDeTarefasDev.git
 
-Acesse o diretório -> cd 
+Acesse o diretório -> cd GerenciamentoDeTarefasDev
 
 Instale as Depedências -> npm intall || npm i
 
