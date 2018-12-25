@@ -11,7 +11,7 @@ export default props =>
             <Link to="/tasks">
                 <i className="fa fa-tasks"></i> TAREFAS 
             </Link>
-            <Link to="#">
+            <Link to="/list">
                 <i className="fa fa-table"></i> LISTA TAREFAS
             </Link>
         </nav>

@@ -1,3 +1,18 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "name": "Fazer Feijão",
+      "description": "Durar 1h no fogo, sempre olhando",
+      "term": "1988-02-27",
+      "priority": "Media",
+      "id": 2
+    },
+    {
+      "name": "Lasanha",
+      "description": "Colocar no fogo durante 40min, e comer",
+      "term": "2018-02-27",
+      "priority": "Media",
+      "id": 3
+    }
+  ]
 }

@@ -29,14 +29,21 @@ export default class Tasks extends Component {
     }
 
     save(){
-        const tasks = this.state.tasks
-        const method = tasks.id ? 'put' : 'post'
-        const url = tasks.id ? `${baseUrl}/${tasks.id}` : baseUrl
-        axios[method](url, tasks)
-            .then(resp => {
-                const list = this.getUpdateList(resp.data)
-                this.setState({tasks: initialState.tasks, list})
-            })
+        if(this.state.tasks.name != ''){
+            const tasks = this.state.tasks
+            const method = tasks.id ? 'put' : 'post'
+            const url = tasks.id ? `${baseUrl}/${tasks.id}` : baseUrl
+            axios[method](url, tasks)
+                .then(resp => {
+                    const list = this.getUpdateList(resp.data)
+                    this.setState({tasks: initialState.tasks, list})
+                })
+
+            alert('Tarefa adicionada com Sucesso!!')
+        }else{
+            alert('Ocorreu algum erro!!')
+        }
+       
     }
 
     getUpdateList(tasks, add = true){
@@ -86,6 +93,7 @@ export default class Tasks extends Component {
                     </div>
                 </div>
                 <hr/>
+                
                 <div className="row">
                     <div className="col-12 d-flex justify-content-end">
                         <button className="btn btn-primary" onClick={e => this.save(e)}>
@@ -104,13 +112,6 @@ export default class Tasks extends Component {
         this.setState({tasks})
     }
 
-    remove(user){
-        axios.delete(`${baseUrl}/${user.id}`).then(resp => {
-            const list = this.getUpdateList(user, false)
-            this.setState({list})
-        })
-    }
-
     renderTable(){
         return(
             <table className="table mt-4">
@@ -121,6 +122,7 @@ export default class Tasks extends Component {
                         <th>Descrição</th>
                         <th>Prazo</th>
                         <th>Prioridade</th>
+                        <th>Editar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -142,10 +144,6 @@ export default class Tasks extends Component {
                     <td>
                         <button className="btn btn-warning" onClick={() => this.load(tasks)}>
                             <i className="fa fa-pencil"></i>
-                        </button>
-
-                        <button className="btn btn-danger ml-2" onClick={() => this.remove(tasks)}>
-                            <i className="fa fa-trash"></i>
                         </button>
                     </td>
                 </tr>
